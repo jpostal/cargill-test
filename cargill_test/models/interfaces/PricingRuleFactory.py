@@ -1,3 +1,6 @@
+"""
+    Abstract Factory Class where Factories Inherit.
+"""
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from cargill_test.models.interfaces.PricingRule import PricingRule
@@ -18,4 +21,8 @@ class PricingRuleFactory(ABC):
 
     @abstractmethod
     def create_gifting_rule(self) -> PricingRule:
+        pass
+
+    @abstractmethod
+    def create_no_rule(self) -> PricingRule:
         pass
