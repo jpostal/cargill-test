@@ -1,4 +1,5 @@
-from Models.Item import Item
+from cargill_test.models.Item import Item
+from cargill_test.models.StorePricingRuleFactory import StorePricingRuleFactory
 
 
 class StoreControllerSingleton(type):
@@ -6,7 +7,7 @@ class StoreControllerSingleton(type):
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
-            instance = super().__call__(*args, *kwargs)
+            instance = super().__call__(*args, **kwargs)
             cls._instances[cls] = instance
         return cls._instances[cls]
 
@@ -18,10 +19,12 @@ class StoreController(metaclass=StoreControllerSingleton):
         pass
 
     def init_store_items(self):
-        self.store_items['stv'] = Item('stv', 'Sony TV', 549.99)
-        self.store_items['cac'] = Item('cac', 'Central AC', 1399.99)
-        self.store_items['nsh'] = Item('nsh', 'Nike Shoe', 109.50)
-        self.store_items['mch'] = Item('mch', 'Charger', 30.00)
+        factory = StorePricingRuleFactory()
+
+        self.store_items['stv'] = Item('stv', 'Sony TV', 549.99, factory.create_discount_rule())
+        self.store_items['cac'] = Item('cac', 'Central AC', 1399.99, factory.create_gifting_rule())
+        self.store_items['nsh'] = Item('nsh', 'Nike Shoe', 109.50, factory.create_buy_more_pay_less_rule())
+        self.store_items['mch'] = Item('mch', 'Charger', 30.00, None)
 
     def checkout(self, shopping_list):
         checkout_sum = 0.0
