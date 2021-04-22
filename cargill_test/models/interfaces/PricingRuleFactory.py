@@ -19,3 +19,7 @@ class PricingRuleFactory(ABC):
     @abstractmethod
     def create_gifting_rule(self) -> PricingRule:
         pass
+
+    @abstractmethod
+    def create_no_rule(self) -> PricingRule:
+        pass

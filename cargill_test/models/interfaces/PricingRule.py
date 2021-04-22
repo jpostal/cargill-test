@@ -8,5 +8,5 @@ class PricingRule(ABC):
         pass
 
     @abstractmethod
-    def apply_pricing_rule(self) -> None:
+    def apply_pricing_rule(self, item, shopping_list) -> None:
         pass
