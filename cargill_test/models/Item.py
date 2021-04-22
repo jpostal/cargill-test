@@ -1,3 +1,6 @@
+"""
+    Item Model class.
+"""
 
 
 class Item:
@@ -8,4 +11,6 @@ class Item:
         self.pricing_rule = pricing_rule
 
     def to_string(self):
-        print('Item_id: {id} -- Name: {n} -- Price: ${p} -- Pricing Rule: {r}'.format(id=self.item_id, n=self.name, p=self.price, r=self.pricing_rule))
+        print('Item_id: {id} -- Name: {n} -- Price: ${p} -- Pricing Rule: {r}'.format(id=self.item_id, n=self.name,
+                                                                                      p=self.price,
+                                                                                      r=self.pricing_rule.to_string()))

@@ -1,3 +1,6 @@
+"""
+    Factory implementation to retrieve concrete Rules.
+"""
 from cargill_test.models.interfaces.PricingRuleFactory import PricingRuleFactory
 from cargill_test.models.interfaces.PricingRule import PricingRule
 from cargill_test.models.pricing_rules.BuyMorePayLessRule import BuyMorePayLessRule

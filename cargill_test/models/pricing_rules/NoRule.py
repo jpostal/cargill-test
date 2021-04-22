@@ -13,3 +13,6 @@ class NoRule(PricingRule):
 
     def apply_pricing_rule(self, item, shopping_list) -> float:
         return 0.0
+
+    def to_string(self) -> str:
+        return "No Rule"

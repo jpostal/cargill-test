@@ -4,8 +4,6 @@
 
     If I want something different, I need to change just this class :) (Y)
 """
-from typing import List
-
 from cargill_test.models.interfaces.PricingRule import PricingRule
 from cargill_test.models.pricing_rules.NoRule import NoRule
 from cargill_test.models.Item import Item
@@ -31,3 +29,6 @@ class GiftingRule(PricingRule):
         self._discount_applied = True
 
         return self._discount_amount
+
+    def to_string(self) -> str:
+        return "Gifting Rule"

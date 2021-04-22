@@ -27,3 +27,6 @@ class DiscountRule(PricingRule):
             self._discount_amount = item_count * (item.price - self._new_price)
             self._discount_applied = True
         return self._discount_amount
+
+    def to_string(self) -> str:
+        return "Discount Rule"

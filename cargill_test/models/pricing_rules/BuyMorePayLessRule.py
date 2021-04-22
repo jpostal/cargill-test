@@ -28,3 +28,6 @@ class BuyMorePayLessRule(PricingRule):
             self._discount_applied = True
 
         return self._discount_amount
+
+    def to_string(self) -> str:
+        return "Buy {a} Pay {b} Rule".format(a=self._items_to_buy, b=self._items_to_pay)
