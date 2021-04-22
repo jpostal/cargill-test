@@ -2,7 +2,9 @@
     Application Entrypoint
 
 """
-
+from os.path import dirname, realpath
+import sys
+sys.path.append(dirname(realpath(__file__))) 
 from controllers.StoreController import StoreController
 
 
@@ -22,4 +24,3 @@ if __name__ == '__main__':
 
     total_checkout = store.checkout(shopping_list)
     print("Your total checkout is: ${:.2f}".format(round(total_checkout, 2)))
-
